@@ -1,19 +1,52 @@
-# React + Vite
+# TaskDone Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+TaskDone is a web application for managing projects and tasks.
 
-Currently, two official plugins are available:
+## Deployment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The application is deployed at: [https://task-done-frontend.vercel.app/](https://task-done-frontend.vercel.app/)
 
-## React Compiler
+## Technologies
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- Vite
+- Axios
+- React Router 7
 
-## Expanding the ESLint configuration
+## API Endpoints
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# TaskDone-Frontend
-# TaskDone-Frontend
-# TaskDone-Frontend
+The frontend interacts with the following backend endpoints through the API service:
+
+### Authentication
+
+- POST /auth/register: Registers a new user with username, email, and password.
+- POST /auth/login: Authenticates a user and returns access and refresh tokens.
+
+### Projects
+
+- GET /projects: Retrieves the list of projects for the authenticated user.
+- POST /projects: Creates a new project with a name and description.
+- PUT /projects/{projectId}/activate: Activates a specific project.
+- PUT /projects/{projectId}/close: Closes a specific project.
+- DELETE /projects/{projectId}: Deletes a specific project.
+
+### Tasks
+
+- GET /projects/{projectId}/tasks: Retrieves all tasks associated with a specific project.
+- POST /projects/{projectId}/tasks: Creates a new task within a project.
+- PUT /tasks/{taskId}/complete: Marks a specific task as completed.
+
+## Development Setup
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Run development server:
+   ```bash
+   npm run dev
+   ```
+3. Build for production:
+   ```bash
+   npm run build
+   ```
